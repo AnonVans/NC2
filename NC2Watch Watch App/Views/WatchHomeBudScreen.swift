@@ -15,7 +15,28 @@ struct WatchHomeBudScreen: View {
         ZStack {
             WatchBackground(color: homeViewModel.colorScheme)
             
-            WatchBudProgressRing(homeViewModel: homeViewModel, budItemType: nil, imageSize: 75.0, frameHeightInner: 112.5, frameHeightOutter: 142.5, lineWidth: 7.5)
+            VStack {
+                HStack {
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchEnergyItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, -15)
+                    
+                    Spacer()
+                }
+                
+                WatchBudProgressRing(homeViewModel: homeViewModel, frameHeightInner: 115, lineWidth: 7.5)
+                    .padding(5)
+                
+                HStack {
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchFoodItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                    
+                    Spacer()
+                    
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchWaterItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, -15)
+            }
         }
     }
 }

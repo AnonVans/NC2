@@ -13,9 +13,11 @@
 		C80E75412BF6939D00684329 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80E75402BF6939D00684329 /* Preview Assets.xcassets */; };
 		C80E754F2BF694F300684329 /* NC2WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E754E2BF694F300684329 /* NC2WatchApp.swift */; };
 		C80E75512BF694F300684329 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E75502BF694F300684329 /* ContentView.swift */; };
-		C80E75532BF694F400684329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80E75522BF694F400684329 /* Assets.xcassets */; };
+		C80E75532BF694F400684329 /* WatchAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80E75522BF694F400684329 /* WatchAssets.xcassets */; };
 		C80E75562BF694F400684329 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80E75552BF694F400684329 /* Preview Assets.xcassets */; };
 		C80E75592BF694F400684329 /* BudSync.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C80E754C2BF694F300684329 /* BudSync.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C85DE01D2C028A2300C1855E /* WatchAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80E75522BF694F400684329 /* WatchAssets.xcassets */; };
+		C85DE01F2C0290D900C1855E /* WatchOuterBudRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85DE01E2C0290D900C1855E /* WatchOuterBudRing.swift */; };
 		C8659A7E2BF75C6900ABF415 /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A7D2BF75C6900ABF415 /* HealthDataManager.swift */; };
 		C8659A832BFCA28400ABF415 /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A822BFCA28400ABF415 /* HealthDataManager.swift */; };
 		C8659A8C2BFCA66900ABF415 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A8B2BFCA66900ABF415 /* HomeScreen.swift */; };
@@ -33,6 +35,9 @@
 		C873C6CA2BFDC60900C82B3B /* WatchMealsLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C873C6C92BFDC60900C82B3B /* WatchMealsLogging.swift */; };
 		C88BF61F2BFDD028003F124E /* WatchWaterLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BF61E2BFDD028003F124E /* WatchWaterLogging.swift */; };
 		C88BF6232BFDDF99003F124E /* WatchDrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BF6222BFDDF99003F124E /* WatchDrinkViewModel.swift */; };
+		C89849C42C03A26000DB3B37 /* WatchBudModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C32C03A26000DB3B37 /* WatchBudModelData.swift */; };
+		C89849C62C03A33400DB3B37 /* SwiftDataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C52C03A33400DB3B37 /* SwiftDataChecker.swift */; };
+		C89849C82C03A40800DB3B37 /* WatchBudItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C72C03A40800DB3B37 /* WatchBudItemRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +73,9 @@
 		C80E754C2BF694F300684329 /* BudSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80E754E2BF694F300684329 /* NC2WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2WatchApp.swift; sourceTree = "<group>"; };
 		C80E75502BF694F300684329 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C80E75522BF694F400684329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C80E75522BF694F400684329 /* WatchAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WatchAssets.xcassets; sourceTree = "<group>"; };
 		C80E75552BF694F400684329 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C85DE01E2C0290D900C1855E /* WatchOuterBudRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchOuterBudRing.swift; sourceTree = "<group>"; };
 		C8659A7D2BF75C6900ABF415 /* HealthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManager.swift; sourceTree = "<group>"; };
 		C8659A7F2BF76FB900ABF415 /* NC2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NC2.entitlements; sourceTree = "<group>"; };
 		C8659A802BF770F800ABF415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 		C873C6C92BFDC60900C82B3B /* WatchMealsLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMealsLogging.swift; sourceTree = "<group>"; };
 		C88BF61E2BFDD028003F124E /* WatchWaterLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWaterLogging.swift; sourceTree = "<group>"; };
 		C88BF6222BFDDF99003F124E /* WatchDrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDrinkViewModel.swift; sourceTree = "<group>"; };
+		C89849C32C03A26000DB3B37 /* WatchBudModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBudModelData.swift; sourceTree = "<group>"; };
+		C89849C52C03A33400DB3B37 /* SwiftDataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataChecker.swift; sourceTree = "<group>"; };
+		C89849C72C03A40800DB3B37 /* WatchBudItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBudItemRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +177,9 @@
 				C873C6B72BFCFB8B00C82B3B /* ViewModel */,
 				C80E755E2BF6950200684329 /* Views */,
 				C80E75602BF6954000684329 /* Manager */,
-				C873C6C82BFDC5A100C82B3B /* HelperViews */,
-				C80E75522BF694F400684329 /* Assets.xcassets */,
+				C873C6C82BFDC5A100C82B3B /* View Components */,
+				C85DE01C2C01063A00C1855E /* Repository */,
+				C80E75522BF694F400684329 /* WatchAssets.xcassets */,
 				C8659A812BF7724000ABF415 /* NC2Watch Watch App.entitlements */,
 				C80E75542BF694F400684329 /* Preview Content */,
 			);
@@ -214,6 +224,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		C85DE01C2C01063A00C1855E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C89849C72C03A40800DB3B37 /* WatchBudItemRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		C8659A842BFCA51C00ABF415 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C873C6B52BFCAF1200C82B3B /* WatchBudModels.swift */,
+				C89849C32C03A26000DB3B37 /* WatchBudModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,15 +258,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C873C6C82BFDC5A100C82B3B /* HelperViews */ = {
+		C873C6C82BFDC5A100C82B3B /* View Components */ = {
 			isa = PBXGroup;
 			children = (
 				C873C6C02BFD27E400C82B3B /* WatchBackground.swift */,
 				C873C6C62BFD631B00C82B3B /* WatchBudProgressRing.swift */,
 				C873C6B22BFCA94500C82B3B /* WatchProgressRing.swift */,
 				C873C6C42BFD5B1800C82B3B /* HealthStoreChecker.swift */,
+				C85DE01E2C0290D900C1855E /* WatchOuterBudRing.swift */,
+				C89849C52C03A33400DB3B37 /* SwiftDataChecker.swift */,
 			);
-			path = HelperViews;
+			path = "View Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80E75412BF6939D00684329 /* Preview Assets.xcassets in Resources */,
+				C85DE01D2C028A2300C1855E /* WatchAssets.xcassets in Resources */,
 				C80E753E2BF6939D00684329 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80E75562BF694F400684329 /* Preview Assets.xcassets in Resources */,
-				C80E75532BF694F400684329 /* Assets.xcassets in Resources */,
+				C80E75532BF694F400684329 /* WatchAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,19 +386,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C873C6C72BFD631B00C82B3B /* WatchBudProgressRing.swift in Sources */,
+				C89849C82C03A40800DB3B37 /* WatchBudItemRepository.swift in Sources */,
 				C873C6C12BFD27E400C82B3B /* WatchBackground.swift in Sources */,
 				C873C6B12BFCA6F600C82B3B /* WatchHomeBudScreen.swift in Sources */,
 				C88BF6232BFDDF99003F124E /* WatchDrinkViewModel.swift in Sources */,
 				C88BF61F2BFDD028003F124E /* WatchWaterLogging.swift in Sources */,
+				C89849C62C03A33400DB3B37 /* SwiftDataChecker.swift in Sources */,
 				C873C6BD2BFD098E00C82B3B /* WatchEnergyScreen.swift in Sources */,
 				C80E75512BF694F300684329 /* ContentView.swift in Sources */,
 				C873C6BF2BFD099C00C82B3B /* WatchWaterScreen.swift in Sources */,
 				C80E754F2BF694F300684329 /* NC2WatchApp.swift in Sources */,
+				C85DE01F2C0290D900C1855E /* WatchOuterBudRing.swift in Sources */,
 				C8659A832BFCA28400ABF415 /* HealthDataManager.swift in Sources */,
 				C873C6CA2BFDC60900C82B3B /* WatchMealsLogging.swift in Sources */,
 				C873C6B92BFCFC0300C82B3B /* WatchBudItemViewModel.swift in Sources */,
 				C873C6B62BFCAF1200C82B3B /* WatchBudModels.swift in Sources */,
 				C873C6B32BFCA94500C82B3B /* WatchProgressRing.swift in Sources */,
+				C89849C42C03A26000DB3B37 /* WatchBudModelData.swift in Sources */,
 				C873C6BB2BFD096600C82B3B /* WatchFoodScreen.swift in Sources */,
 				C873C6C32BFD378000C82B3B /* WatchHomeViewModel.swift in Sources */,
 				C873C6C52BFD5B1800C82B3B /* HealthStoreChecker.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct NC2Watch_Watch_AppApp: App {
@@ -17,5 +18,8 @@ struct NC2Watch_Watch_AppApp: App {
                 .environmentObject(healthManager)
                 .preferredColorScheme(.dark)
         }
+        .modelContainer(for: [
+            WatchBudModelData.self
+        ])
     }
 }

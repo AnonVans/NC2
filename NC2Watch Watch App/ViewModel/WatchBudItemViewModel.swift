@@ -11,7 +11,7 @@ import SwiftUI
 class WatchBudItemViewModel: ObservableObject {
     var healthManager: HealthDataManager
 
-//    @Published var progress: Double = 0.25
+    @Published var progress: Double = 0.25
     @Published var changeDisplay = false
     var budItem: WatchBudItem?
     var budItemType: BudItemType
@@ -20,29 +20,29 @@ class WatchBudItemViewModel: ObservableObject {
         self.budItemType = itemType
         self.healthManager = healthManager
         self.budItem = initializeBudItem(itemType)
-//        
-//        calculateItemProgress()
+        
+        calculateItemProgress()
     }
     
     func initializeBudItem(_ itemType: BudItemType) -> WatchBudItem {
         switch itemType {
         case .Food:
-            return WatchBudItem(type: BudItemType.Food, imageName: "fork.knife", colorScheme: Color.orange, counter: 1, target: 3)
+            return WatchBudItem(type: BudItemType.Food, imageName: "fork.knife", colorScheme: Color.warmOrange, counter: 1, target: 3)
         case .ActiveEnergy:
-            return WatchBudItem(type: BudItemType.ActiveEnergy, imageName: "flame.fill", colorScheme: Color.red, counter: 0, target: 250)
+            return WatchBudItem(type: BudItemType.ActiveEnergy, imageName: "flame.fill", colorScheme: Color.brightRed, counter: 0, target: 250)
         case .Water:
-            return WatchBudItem(type: BudItemType.Water, imageName: "waterbottle.fill", colorScheme: Color.blue, counter: 0, target: 2000)
+            return WatchBudItem(type: BudItemType.Water, imageName: "waterbottle.fill", colorScheme: Color.greenishCyan, counter: 0, target: 2000)
         }
     }
     
-    func calculateItemProgress() -> Double{
+    func calculateItemProgress() {
         switch budItem!.type {
         case .Food:
-            return (Double(budItem!.counter)/budItem!.target) * 0.75
+            self.progress = (Double(budItem!.counter)/budItem!.target) * 0.75
         case .ActiveEnergy:
-            return (healthManager.calories/budItem!.target) * 0.75
+            self.progress = (healthManager.calories/budItem!.target) * 0.75
         case .Water:
-            return (Double(healthManager.water)/budItem!.target) * 0.75
+            self.progress = (Double(healthManager.water)/budItem!.target) * 0.75
         }
     }
     

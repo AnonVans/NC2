@@ -8,12 +8,18 @@
 import Foundation
 import SwiftUI
 
-enum BudTypes {
-    case Sprout
-    case Sapling
-    case YoungTree
-    case AdultTree
-    case PeakSeason
+enum BudTypes: String {
+    case Sprout = "Sprout"
+    case Sapling = "Sapling"
+    case YoungTree = "YoungTree"
+    case AdultTree = "AdultTree"
+    case PeakSeason = "FullBloom"
+}
+
+enum BudState: String {
+    case Normal = "Normal"
+    case Stressed = "Stressed"
+    case SleepDeprived = "SleepDeprived"
 }
 
 enum BudItemType {
@@ -24,11 +30,11 @@ enum BudItemType {
 
 class WatchBuds {
     var type: BudTypes
-    var imageName: String = ""
+    var state: BudState
     
-    init(type: BudTypes, imageName: String) {
+    init(type: BudTypes, state: BudState) {
         self.type = type
-        self.imageName = imageName
+        self.state = state
     }
 }
 

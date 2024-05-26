@@ -17,8 +17,8 @@ class WatchHomeViewModel: ObservableObject {
     
     @Published var progress: Double = 0.25
     @Published var score: Int = 0
-    @Published var budState: WatchBuds?
-    var colorScheme = Color.green
+    @Published var bud: WatchBuds?
+    var colorScheme = Color.yellowishGreen
     
     init (healthManager: HealthDataManager) {
         self.healthManager = healthManager
@@ -27,7 +27,7 @@ class WatchHomeViewModel: ObservableObject {
         energyItemViewModel = WatchBudItemViewModel(itemType: BudItemType.ActiveEnergy, healthManager: healthManager)
         waterItemViewModel = WatchBudItemViewModel(itemType: BudItemType.Water, healthManager: healthManager)
         
-        self.budState = initializeBud()
+        self.bud = initializeBud()
     }
     
     func initializeBud() -> WatchBuds {
@@ -48,15 +48,15 @@ class WatchHomeViewModel: ObservableObject {
     func initializeBudByType(_ budType: BudTypes) -> WatchBuds {
         switch budType {
         case .Sprout:
-            return WatchBuds(type: BudTypes.Sprout, imageName: "1.circle.fill")
+            return WatchBuds(type: BudTypes.Sprout, state: BudState.Normal)
         case .Sapling:
-            return WatchBuds(type: BudTypes.Sapling, imageName: "2.circle.fill")
+            return WatchBuds(type: BudTypes.Sapling, state: BudState.Normal)
         case .YoungTree:
-            return WatchBuds(type: BudTypes.YoungTree, imageName: "3.circle.fill")
+            return WatchBuds(type: BudTypes.YoungTree, state: BudState.Normal)
         case .AdultTree:
-            return WatchBuds(type: BudTypes.AdultTree, imageName: "4.circle.fill")
+            return WatchBuds(type: BudTypes.AdultTree, state: BudState.Normal)
         case .PeakSeason:
-            return WatchBuds(type: BudTypes.PeakSeason, imageName: "5.circle.fill")
+            return WatchBuds(type: BudTypes.PeakSeason, state: BudState.Normal)
         }
     }
     
@@ -66,6 +66,10 @@ class WatchHomeViewModel: ObservableObject {
     
     func calculateBudProgress() {
         
+    }
+    
+    func fetchBudImageName() -> String {
+        return bud!.type.rawValue + bud!.state.rawValue
     }
     
     func fetchFoodItem() -> WatchBudItemViewModel {

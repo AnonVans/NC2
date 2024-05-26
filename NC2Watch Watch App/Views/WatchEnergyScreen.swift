@@ -19,15 +19,19 @@ struct WatchEnergyScreen: View {
             
             VStack {
                 HStack {
-                    WatchBudProgressRing(homeViewModel: homeViewModel, budItemType: BudItemType.ActiveEnergy, imageSize: 15.0, frameHeightInner: 21.5, frameHeightOutter: 28.5, lineWidth: 2.5)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, -15)
+                    ZStack {
+                        WatchBudProgressRing(homeViewModel: homeViewModel, frameHeightInner: 21.5, lineWidth: 2.5)
+                        
+                        WatchOuterBudRing(homeViewModel: homeViewModel, budItemType: BudItemType.ActiveEnergy, frameHeightOutter: 28.5, lineWidth: 2.5)
+                    }
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, -15)
                     
                     Spacer()
                 }
                 
                 VStack {
-                    WatchProgressRing(itemViewModel: itemViewModel)
+                    WatchProgressRing(itemViewModel: itemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
                     
                     VStack (alignment: .leading) {
                         HStack {
@@ -35,7 +39,7 @@ struct WatchEnergyScreen: View {
                                 .font(.caption2)
                                 .bold()
                                 .foregroundStyle(itemViewModel.budItem!.colorScheme)
-                            Text(String(Int((itemViewModel.calculateItemProgress()/0.75) * 100)) + "% burned")
+                            Text(String(Int((itemViewModel.progress/0.75) * 100)) + "% burned")
                                 .font(.caption2)
                         }
                     }

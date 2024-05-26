@@ -19,15 +19,19 @@ struct WatchFoodScreen: View {
             
             VStack {
                 HStack {
-                    WatchBudProgressRing(homeViewModel: homeViewModel, budItemType: BudItemType.Food, imageSize: 15.0, frameHeightInner: 21.5, frameHeightOutter: 28.5, lineWidth: 2.5)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, -15)
+                    ZStack {
+                        WatchBudProgressRing(homeViewModel: homeViewModel, frameHeightInner: 21.5, lineWidth: 2.5)
+                        
+                        WatchOuterBudRing(homeViewModel: homeViewModel, budItemType: BudItemType.Food, frameHeightOutter: 28.5, lineWidth: 2.5)
+                    }
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, -15)
                     
                     Spacer()
                 }
                 
                 VStack {
-                    WatchProgressRing(itemViewModel: itemViewModel)
+                    WatchProgressRing(itemViewModel: itemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
                     
                     HStack {
                         HStack {

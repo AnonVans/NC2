@@ -35,6 +35,10 @@ struct ContentView: View {
         }
         .onAppear {
             healthManager.fetchAllData()
+            
+            Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
+                healthManager.fetchAllData()
+            }
         }
     }
 }

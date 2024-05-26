@@ -15,7 +15,11 @@ class HealthDataManager: ObservableObject {
     @Published var calories: Double = 0.0
     @Published var water: Int = 0
     @Published var sleep: String = ""
+    @Published var sleepHour: Double = 0.0
     @Published var hrv: Int = 0
+    @Published var hrvStart: Date?
+    @Published var hrvEnd: Date?
+    @Published var hrvLength: Int = 0
     
     var startDate: Date
     var endDate: Date
@@ -104,7 +108,7 @@ class HealthDataManager: ObservableObject {
 //            print(results)
             
             DispatchQueue.main.async {
-                var hour = 0
+                var hour = 0.0
                 var minute = 0
                 
                 let calendar = Calendar(identifier: .gregorian)
@@ -118,12 +122,13 @@ class HealthDataManager: ObservableObject {
                             let startSleep = result.startDate
                             let endSleep = result.endDate
                             let sleepTime = endSleep.timeIntervalSince(startSleep)
-                            hour += Int(sleepTime / 3600)
+                            hour += sleepTime / 3600
                             minute += Int((Int(sleepTime) % 3600) / 60)
                         }
                     }
                 }
-                self.sleep = String(hour) + "hrs " + String(minute) + "min"
+                self.sleepHour = hour
+                self.sleep = String(Int(hour)) + "hrs " + String(minute) + "min"
                 
                 //delete on finish
 //                print(self.sleep)
@@ -138,7 +143,7 @@ class HealthDataManager: ObservableObject {
         let descriptor = HKSampleQueryDescriptor(
             predicates: [.quantitySample(type: HKQuantityType(.heartRateVariabilitySDNN))],
             sortDescriptors: [SortDescriptor(\.endDate, order: .reverse)],
-            limit: 1)
+            limit: 2)
         
         do {
             let results = try await descriptor.result(for: healthStore)
@@ -149,6 +154,12 @@ class HealthDataManager: ObservableObject {
             DispatchQueue.main.async {
                 if !results.isEmpty {
                     self.hrv = Int(results.first!.quantity.doubleValue(for: .secondUnit(with: .milli)))
+                    self.hrvEnd = results.first!.endDate
+                    
+                    if results.count > 1 {
+                        self.hrvStart = results.last!.endDate
+                        self.hrvLength = self.getHRVLength(self.hrvStart!, self.hrvEnd!)
+                    }
                 }
             }
         } catch {
@@ -165,9 +176,14 @@ class HealthDataManager: ObservableObject {
         }
     }
     
+    func getHRVLength(_ start: Date, _ end: Date) -> Int {
+        return Int(end.timeIntervalSince(start)/60)
+    }
+    
     func sendWaterIntake(_ waterIntake: Int) {
-        let curDate = Date()
+        self.water += waterIntake
         
+        let curDate = Date()
         let waterSample = HKQuantitySample(
             type: HKQuantityType(.dietaryWater),
             quantity: HKQuantity(unit: HKUnit.literUnit(with: .milli), doubleValue: Double(waterIntake)),
