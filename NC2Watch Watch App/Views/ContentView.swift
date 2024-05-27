@@ -21,9 +21,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView {
-                NavigationStack {
-                    HealthStoreChecker()
-                }
+//                NavigationStack {
+//                    HealthStoreChecker()
+//                }
                 NavigationStack {
                     WatchHomeBudScreen(homeViewModel: WatchHomeViewModel(healthManager: healthManager, budItems: budItems))
                 }
