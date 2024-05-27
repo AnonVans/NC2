@@ -15,7 +15,7 @@ class WatchHomeViewModel: ObservableObject {
     var energyItemViewModel: WatchBudItemViewModel
     var waterItemViewModel: WatchBudItemViewModel
     
-    var score: Int = 0
+    var score: Double = 0.0
     var bud: WatchBuds?
     var colorScheme = Color.yellowishGreen
     var imageName: String = ""
@@ -51,7 +51,7 @@ class WatchHomeViewModel: ObservableObject {
         return WatchBuds(type: budType, state: budState)
     }
     
-    func calculateBudScore() -> Int {
+    func calculateBudScore() -> Double {
         let foodItem = self.foodItemViewModel
         let foodScore = (Double(foodItem.budItem!.budItemData.counter) / foodItem.budItem!.budItemData.target) * 100
         
@@ -61,13 +61,14 @@ class WatchHomeViewModel: ObservableObject {
         let waterItem = self.waterItemViewModel
         let waterScore = (Double(healthManager.water) / waterItem.budItem!.budItemData.target) * 100
         
-        self.score = Int(foodScore + energyScore + waterScore)
+        self.score = foodScore + energyScore + waterScore
+//        self.score = Int(tempscore)
         
         return self.score
     }
     
     func calculateBudProgress() -> Double {
-        let progressScore = calculateBudScore() % 100
+        let progressScore = Int(calculateBudScore()) % 100
         let progress = Double(progressScore) / 100
         
         return progress
