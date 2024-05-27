@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct WatchMealsLogging: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var itemModel
+    
+    @Query var budItems: [WatchBudModelData]
+    
+    var foodItemModel: WatchBudItemViewModel
     
     var body: some View {
         ZStack {
@@ -22,6 +28,23 @@ struct WatchMealsLogging: View {
                     .padding(15)
                 
                 Button {
+                    for budItem in budItems {
+                        if budItem.itemType == "Food" {
+                            let budItem = budItems[0]
+                            budItem.counter += 1
+                            budItem.timeStamp = Date()
+                            try? itemModel.save()
+                            
+                            print("Success adding meal")
+                        }
+                    }
+                    
+                    foodItemModel.mealLogging()
+                    foodItemModel.changeViewDisplay()
+                    
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                        foodItemModel.changeViewDisplay()
+                    }
                     
                     dismiss()
                 } label: {
@@ -43,5 +66,5 @@ struct WatchMealsLogging: View {
 }
 
 #Preview {
-    WatchMealsLogging()
+    WatchMealsLogging(foodItemModel: WatchBudItemViewModel(itemType: BudItemType.Food, healthManager: HealthDataManager(), budItemData: []))
 }

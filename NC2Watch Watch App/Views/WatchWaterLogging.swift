@@ -11,6 +11,8 @@ struct WatchWaterLogging: View {
     @Environment(\.dismiss) var dismiss
     
     var drinkViewModel: WatchDrinkViewModel
+    var drinkItem: WatchBudItemViewModel
+    
     @State var hundred: Int = 1
     @State var ten: Int = 0
     
@@ -50,6 +52,12 @@ struct WatchWaterLogging: View {
                 
                 Button {
                     drinkViewModel.writeToHealthKit(hundred, ten)
+                    drinkItem.changeViewDisplay()
+                    
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                        drinkItem.changeViewDisplay()
+                    }
+                    
                     dismiss()
                 } label: {
                     HStack {
@@ -72,6 +80,6 @@ struct WatchWaterLogging: View {
     }
 }
 
-#Preview {
-    WatchWaterLogging(drinkViewModel: WatchDrinkViewModel(healthManager: HealthDataManager()))
-}
+//#Preview {
+//    WatchWaterLogging(drinkViewModel: WatchDrinkViewModel(healthManager: HealthDataManager()))
+//}

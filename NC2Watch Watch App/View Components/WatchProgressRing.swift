@@ -13,15 +13,11 @@ struct WatchProgressRing: View {
     var progressFrameSize: Double
     var imageFrameSize: Double
     var lineWidth: Double
+    var inHomeScreen: Bool
     
     var body: some View {
         ZStack {
-            if !itemViewModel.changeDisplay {
-                Image(systemName: itemViewModel.budItem!.imageName )
-                    .font(.system(size: imageFrameSize))
-                    .foregroundColor(itemViewModel.budItem!.colorScheme)
-                    .offset(y: lineWidth)
-            } else {
+            if itemViewModel.changeDisplay && !inHomeScreen {
                 VStack {
                     Text(itemViewModel.fetchRemainingAmountString())
                         .font(.headline)
@@ -30,7 +26,12 @@ struct WatchProgressRing: View {
                     Text("remaining")
                         .font(.caption)
                 }
-//                .frame(width: 120, height: 120)
+                .frame(height: 115)
+            } else {
+                Image(systemName: itemViewModel.budItem!.imageName )
+                    .font(.system(size: imageFrameSize))
+                    .foregroundColor(itemViewModel.budItem!.colorScheme)
+                    .offset(y: lineWidth)
             }
             
             Circle()
@@ -42,7 +43,7 @@ struct WatchProgressRing: View {
                 .rotationEffect(.degrees(135))
             
             Circle()
-                .trim(from: 0.0, to: CGFloat(min(itemViewModel.progress, 0.75)))
+                .trim(from: 0.0, to: CGFloat(min(itemViewModel.calculateItemProgress(), 0.75)))
                 .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .frame(width: progressFrameSize)
                 .foregroundColor(itemViewModel.budItem!.colorScheme)
@@ -53,5 +54,5 @@ struct WatchProgressRing: View {
 }
 
 #Preview {
-    WatchProgressRing(itemViewModel: WatchBudItemViewModel(itemType: BudItemType.Food, healthManager: HealthDataManager()), progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
+    WatchProgressRing(itemViewModel: WatchBudItemViewModel(itemType: BudItemType.Food, healthManager: HealthDataManager(), budItemData: []), progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5, inHomeScreen: false)
 }

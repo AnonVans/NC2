@@ -57,9 +57,6 @@ class HealthDataManager: ObservableObject {
         do {
             let results = try await descriptor.result(for: healthStore)
             
-            //delete on finish
-//            print(results ?? "no records")
-            
             DispatchQueue.main.async {
                 if results != nil {
                     let burnedCalories = results?.sumQuantity()?.doubleValue(for: HKUnit.smallCalorie())
@@ -81,9 +78,6 @@ class HealthDataManager: ObservableObject {
         do {
             let results = try await descriptor.result(for: healthStore)
             
-            //delete on finish
-//            print(results ?? "no records")
-            
             DispatchQueue.main.async {
                 if results != nil {
                     let drink = Int(results?.sumQuantity()?.doubleValue(for: HKUnit.literUnit(with: .milli)) ?? 0)
@@ -104,9 +98,6 @@ class HealthDataManager: ObservableObject {
         do {
             let results = try await descriptor.result(for: healthStore)
             
-            //delete on finish
-//            print(results)
-            
             DispatchQueue.main.async {
                 var hour = 0.0
                 var minute = 0
@@ -114,7 +105,6 @@ class HealthDataManager: ObservableObject {
                 let calendar = Calendar(identifier: .gregorian)
                 let currDate = calendar.startOfDay(for: Date())
                 let startSleepCheck = calendar.date(byAdding: .hour, value: -6, to: currDate) //cek sejak jam 6 hari sebelumnya.
-//                print(startSleepCheck?.formatted() ?? "No records")
                 
                 for result in results {
                     if result.value == 0 {
@@ -130,9 +120,6 @@ class HealthDataManager: ObservableObject {
                 self.sleepHour = hour
                 self.sleep = String(Int(hour)) + "hrs " + String(minute) + "min"
                 
-                //delete on finish
-//                print(self.sleep)
-//                print("Sleep Data: \(hour) hr \(minute) minutes")
             }
         } catch {
             print("Error on fetching data: \(error.localizedDescription)")
@@ -147,9 +134,6 @@ class HealthDataManager: ObservableObject {
         
         do {
             let results = try await descriptor.result(for: healthStore)
-            
-            //delete on finish
-//            print(results)
             
             DispatchQueue.main.async {
                 if !results.isEmpty {

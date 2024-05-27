@@ -20,7 +20,12 @@
 		C85DE01F2C0290D900C1855E /* WatchOuterBudRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85DE01E2C0290D900C1855E /* WatchOuterBudRing.swift */; };
 		C8659A7E2BF75C6900ABF415 /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A7D2BF75C6900ABF415 /* HealthDataManager.swift */; };
 		C8659A832BFCA28400ABF415 /* HealthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A822BFCA28400ABF415 /* HealthDataManager.swift */; };
-		C8659A8C2BFCA66900ABF415 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A8B2BFCA66900ABF415 /* HomeScreen.swift */; };
+		C8659A8C2BFCA66900ABF415 /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8659A8B2BFCA66900ABF415 /* SettingScreen.swift */; };
+		C868F9712C043E2E00B3D53D /* BudDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868F9702C043E2E00B3D53D /* BudDataModel.swift */; };
+		C868F9732C04491800B3D53D /* WatchAppConnecter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868F9722C04491800B3D53D /* WatchAppConnecter.swift */; };
+		C868F9752C0449A600B3D53D /* IOSAppConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868F9742C0449A600B3D53D /* IOSAppConnector.swift */; };
+		C868F9782C044BAC00B3D53D /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C868F9772C044BAC00B3D53D /* WatchConnectivity.framework */; };
+		C868F97A2C044BB900B3D53D /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C868F9792C044BB900B3D53D /* WatchConnectivity.framework */; };
 		C873C6B12BFCA6F600C82B3B /* WatchHomeBudScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C873C6B02BFCA6F600C82B3B /* WatchHomeBudScreen.swift */; };
 		C873C6B32BFCA94500C82B3B /* WatchProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C873C6B22BFCA94500C82B3B /* WatchProgressRing.swift */; };
 		C873C6B62BFCAF1200C82B3B /* WatchBudModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C873C6B52BFCAF1200C82B3B /* WatchBudModels.swift */; };
@@ -38,6 +43,7 @@
 		C89849C42C03A26000DB3B37 /* WatchBudModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C32C03A26000DB3B37 /* WatchBudModelData.swift */; };
 		C89849C62C03A33400DB3B37 /* SwiftDataChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C52C03A33400DB3B37 /* SwiftDataChecker.swift */; };
 		C89849C82C03A40800DB3B37 /* WatchBudItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849C72C03A40800DB3B37 /* WatchBudItemRepository.swift */; };
+		C89849E42C04302200DB3B37 /* HealthStoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89849E32C04302200DB3B37 /* HealthStoreDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +87,12 @@
 		C8659A802BF770F800ABF415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C8659A812BF7724000ABF415 /* NC2Watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NC2Watch Watch App.entitlements"; sourceTree = "<group>"; };
 		C8659A822BFCA28400ABF415 /* HealthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManager.swift; sourceTree = "<group>"; };
-		C8659A8B2BFCA66900ABF415 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		C8659A8B2BFCA66900ABF415 /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		C868F9702C043E2E00B3D53D /* BudDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudDataModel.swift; sourceTree = "<group>"; };
+		C868F9722C04491800B3D53D /* WatchAppConnecter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnecter.swift; sourceTree = "<group>"; };
+		C868F9742C0449A600B3D53D /* IOSAppConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSAppConnector.swift; sourceTree = "<group>"; };
+		C868F9772C044BAC00B3D53D /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.5.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		C868F9792C044BB900B3D53D /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		C873C6B02BFCA6F600C82B3B /* WatchHomeBudScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeBudScreen.swift; sourceTree = "<group>"; };
 		C873C6B22BFCA94500C82B3B /* WatchProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProgressRing.swift; sourceTree = "<group>"; };
 		C873C6B52BFCAF1200C82B3B /* WatchBudModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBudModels.swift; sourceTree = "<group>"; };
@@ -99,6 +110,7 @@
 		C89849C32C03A26000DB3B37 /* WatchBudModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBudModelData.swift; sourceTree = "<group>"; };
 		C89849C52C03A33400DB3B37 /* SwiftDataChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataChecker.swift; sourceTree = "<group>"; };
 		C89849C72C03A40800DB3B37 /* WatchBudItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBudItemRepository.swift; sourceTree = "<group>"; };
+		C89849E32C04302200DB3B37 /* HealthStoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStoreDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C868F97A2C044BB900B3D53D /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C868F9782C044BAC00B3D53D /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +139,7 @@
 				C80E75382BF6939B00684329 /* NC2 */,
 				C80E754D2BF694F300684329 /* NC2Watch Watch App */,
 				C80E75372BF6939B00684329 /* Products */,
+				C868F9762C044BAC00B3D53D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,7 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				C80E753B2BF6939B00684329 /* ContentView.swift */,
-				C8659A8B2BFCA66900ABF415 /* HomeScreen.swift */,
+				C8659A8B2BFCA66900ABF415 /* SettingScreen.swift */,
+				C89849E32C04302200DB3B37 /* HealthStoreDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				C8659A7D2BF75C6900ABF415 /* HealthDataManager.swift */,
+				C868F9722C04491800B3D53D /* WatchAppConnecter.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -220,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				C8659A822BFCA28400ABF415 /* HealthDataManager.swift */,
+				C868F9742C0449A600B3D53D /* IOSAppConnector.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -235,8 +253,18 @@
 		C8659A842BFCA51C00ABF415 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C868F9702C043E2E00B3D53D /* BudDataModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C868F9762C044BAC00B3D53D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C868F9792C044BB900B3D53D /* WatchConnectivity.framework */,
+				C868F9772C044BAC00B3D53D /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C873C6B42BFCAEE400C82B3B /* Model */ = {
@@ -374,10 +402,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8659A8C2BFCA66900ABF415 /* HomeScreen.swift in Sources */,
+				C8659A8C2BFCA66900ABF415 /* SettingScreen.swift in Sources */,
 				C80E753C2BF6939B00684329 /* ContentView.swift in Sources */,
+				C868F9732C04491800B3D53D /* WatchAppConnecter.swift in Sources */,
 				C80E753A2BF6939B00684329 /* NC2App.swift in Sources */,
+				C89849E42C04302200DB3B37 /* HealthStoreDataView.swift in Sources */,
 				C8659A7E2BF75C6900ABF415 /* HealthDataManager.swift in Sources */,
+				C868F9712C043E2E00B3D53D /* BudDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +429,7 @@
 				C80E754F2BF694F300684329 /* NC2WatchApp.swift in Sources */,
 				C85DE01F2C0290D900C1855E /* WatchOuterBudRing.swift in Sources */,
 				C8659A832BFCA28400ABF415 /* HealthDataManager.swift in Sources */,
+				C868F9752C0449A600B3D53D /* IOSAppConnector.swift in Sources */,
 				C873C6CA2BFDC60900C82B3B /* WatchMealsLogging.swift in Sources */,
 				C873C6B92BFCFC0300C82B3B /* WatchBudItemViewModel.swift in Sources */,
 				C873C6B62BFCAF1200C82B3B /* WatchBudModels.swift in Sources */,

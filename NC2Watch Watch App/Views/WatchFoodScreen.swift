@@ -11,11 +11,11 @@ struct WatchFoodScreen: View {
     @EnvironmentObject var healthManager: HealthDataManager
     
     var homeViewModel: WatchHomeViewModel
-    var itemViewModel: WatchBudItemViewModel
+//    var itemViewModel: WatchBudItemViewModel
     
     var body: some View {
         ZStack {
-            WatchBackground(color: itemViewModel.budItem!.colorScheme)
+            WatchBackground(color: homeViewModel.foodItemViewModel.budItem!.colorScheme)
             
             VStack {
                 HStack {
@@ -31,24 +31,24 @@ struct WatchFoodScreen: View {
                 }
                 
                 VStack {
-                    WatchProgressRing(itemViewModel: itemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
+                    WatchProgressRing(itemViewModel: homeViewModel.foodItemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5, inHomeScreen: false)
                     
                     HStack {
                         HStack {
-                            Text(String(Int(itemViewModel.fetchProgressAmount())))
+                            Text(String(Int(homeViewModel.foodItemViewModel.fetchProgressAmount())))
                                 .font(.caption)
                                 .bold()
-                                .foregroundStyle(itemViewModel.budItem!.colorScheme)
-                            Text("/ 3 meals")
+                                .foregroundStyle(homeViewModel.foodItemViewModel.budItem!.colorScheme)
+                            Text("/ " + String(Int(homeViewModel.foodItemViewModel.budItem!.budItemData.target)) + " meals")
                                 .font(.caption)
                         }
                         
                         Spacer()
                         
-                        NavigationLink(destination: WatchMealsLogging()) {
+                        NavigationLink(destination: WatchMealsLogging(foodItemModel: homeViewModel.foodItemViewModel)) {
                             Image(systemName: "plus.circle.fill")
                                 .font(.system(size: 25))
-                                .foregroundStyle(itemViewModel.budItem!.colorScheme)
+                                .foregroundStyle(homeViewModel.foodItemViewModel.budItem!.colorScheme)
                         }.buttonStyle(PlainButtonStyle())
                     }
                     .padding(.horizontal, 12)
@@ -58,12 +58,12 @@ struct WatchFoodScreen: View {
         }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.5)) {
-                itemViewModel.changeViewDisplay()
+                homeViewModel.foodItemViewModel.changeViewDisplay()
             }
         }
     }
 }
 
 #Preview {
-    WatchFoodScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()), itemViewModel: WatchBudItemViewModel(itemType: BudItemType.Food, healthManager: HealthDataManager()))
+    WatchFoodScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []))
 }

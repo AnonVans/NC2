@@ -11,11 +11,11 @@ struct WatchEnergyScreen: View {
     @EnvironmentObject var healthManager: HealthDataManager
     
     var homeViewModel: WatchHomeViewModel
-    var itemViewModel: WatchBudItemViewModel
+//    var itemViewModel: WatchBudItemViewModel
     
     var body: some View {
         ZStack {
-            WatchBackground(color: itemViewModel.budItem!.colorScheme)
+            WatchBackground(color: homeViewModel.energyItemViewModel.budItem!.colorScheme)
             
             VStack {
                 HStack {
@@ -31,15 +31,15 @@ struct WatchEnergyScreen: View {
                 }
                 
                 VStack {
-                    WatchProgressRing(itemViewModel: itemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
+                    WatchProgressRing(itemViewModel: homeViewModel.energyItemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5, inHomeScreen: false)
                     
                     VStack (alignment: .leading) {
                         HStack {
-                            Text(String(format: "%.1f", itemViewModel.fetchProgressAmount()) + " kcal")
+                            Text(String(format: "%.1f", homeViewModel.energyItemViewModel.fetchProgressAmount()) + " kcal")
                                 .font(.caption2)
                                 .bold()
-                                .foregroundStyle(itemViewModel.budItem!.colorScheme)
-                            Text(String(Int((itemViewModel.progress/0.75) * 100)) + "% burned")
+                                .foregroundStyle(homeViewModel.energyItemViewModel.budItem!.colorScheme)
+                            Text(String(Int((homeViewModel.energyItemViewModel.calculateItemProgress()/0.75) * 100)) + "% burned")
                                 .font(.caption2)
                         }
                     }
@@ -50,12 +50,12 @@ struct WatchEnergyScreen: View {
         }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.5)) {
-                itemViewModel.changeViewDisplay()
+                homeViewModel.energyItemViewModel.changeViewDisplay()
             }
         }
     }
 }
 
 #Preview {
-    WatchEnergyScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()), itemViewModel: WatchBudItemViewModel(itemType: BudItemType.ActiveEnergy, healthManager: HealthDataManager()))
+    WatchEnergyScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []))
 }

@@ -70,7 +70,7 @@ struct WatchOuterBudRing: View {
 
 #Preview {
     WatchOuterBudRing(
-        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()),
+        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []),
         budItemType: nil,
         frameHeightOutter: 142.5,
         lineWidth: 7.5)

@@ -1,6 +1,6 @@
 //
-//  WatchBudModelData.swift
-//  NC2Watch Watch App
+//  BudDataModel.swift
+//  NC2
 //
 //  Created by Stevans Calvin Candra on 27/05/24.
 //
@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class WatchBudModelData: Identifiable {
+class BudDataModel: Identifiable {
     var id = UUID()
     var itemType: String = ""
     var counter: Int

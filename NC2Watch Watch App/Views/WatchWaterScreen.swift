@@ -11,11 +11,11 @@ struct WatchWaterScreen: View {
     @EnvironmentObject var healthManager: HealthDataManager
     
     var homeViewModel: WatchHomeViewModel
-    var itemViewModel: WatchBudItemViewModel
+//    var itemViewModel: WatchBudItemViewModel
     
     var body: some View {
         ZStack {
-            WatchBackground(color: itemViewModel.budItem!.colorScheme)
+            WatchBackground(color: homeViewModel.waterItemViewModel.budItem!.colorScheme)
             
             VStack {
                 HStack {
@@ -31,24 +31,24 @@ struct WatchWaterScreen: View {
                 }
                 
                 VStack {
-                    WatchProgressRing(itemViewModel: itemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5)
+                    WatchProgressRing(itemViewModel: homeViewModel.waterItemViewModel, progressFrameSize: 115, imageFrameSize: 75, lineWidth: 7.5, inHomeScreen: false)
                     
                     HStack {
                         HStack {
-                            Text(String(Int(itemViewModel.fetchProgressAmount())) + " ml")
+                            Text(String(Int(homeViewModel.waterItemViewModel.fetchProgressAmount())) + " ml")
                                 .font(.caption)
                                 .bold()
-                                .foregroundStyle(itemViewModel.budItem!.colorScheme)
-                            Text(String(Int((itemViewModel.progress/0.75) * 100)) + "%")
+                                .foregroundStyle(homeViewModel.waterItemViewModel.budItem!.colorScheme)
+                            Text(String(Int((homeViewModel.waterItemViewModel.calculateItemProgress()/0.75) * 100)) + "%")
                                 .font(.caption)
                         }
                         
                         Spacer()
                         
-                        NavigationLink(destination: WatchWaterLogging(drinkViewModel: WatchDrinkViewModel(healthManager: healthManager))) {
+                        NavigationLink(destination: WatchWaterLogging(drinkViewModel: WatchDrinkViewModel(healthManager: healthManager), drinkItem: homeViewModel.waterItemViewModel)) {
                             Image(systemName: "plus.circle.fill")
                                 .font(.system(size: 25))
-                                .foregroundStyle(itemViewModel.budItem!.colorScheme)
+                                .foregroundStyle(homeViewModel.waterItemViewModel.budItem!.colorScheme)
                         }.buttonStyle(PlainButtonStyle())
                     }
                     .padding(.horizontal, 12)
@@ -59,7 +59,7 @@ struct WatchWaterScreen: View {
         }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.5)) {
-                itemViewModel.changeViewDisplay()
+                homeViewModel.waterItemViewModel.changeViewDisplay()
             }
         }
     }
@@ -67,5 +67,5 @@ struct WatchWaterScreen: View {
 
 #Preview {
     WatchWaterScreen(
-        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()), itemViewModel: WatchBudItemViewModel(itemType: BudItemType.Water, healthManager: HealthDataManager()))
+        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []))
 }

@@ -17,7 +17,7 @@ struct WatchHomeBudScreen: View {
             
             VStack {
                 HStack {
-                    WatchProgressRing(itemViewModel: homeViewModel.fetchEnergyItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchEnergyItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3, inHomeScreen: true)
                         .padding(.horizontal, 10)
                         .padding(.vertical, -15)
                     
@@ -28,11 +28,11 @@ struct WatchHomeBudScreen: View {
                     .padding(5)
                 
                 HStack {
-                    WatchProgressRing(itemViewModel: homeViewModel.fetchFoodItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchFoodItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3, inHomeScreen: true)
                     
                     Spacer()
                     
-                    WatchProgressRing(itemViewModel: homeViewModel.fetchWaterItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3)
+                    WatchProgressRing(itemViewModel: homeViewModel.fetchWaterItem(), progressFrameSize: 35, imageFrameSize: 22.5, lineWidth: 3, inHomeScreen: true)
                 }
                 .padding(.horizontal, 10)
                 .padding(.vertical, -15)
@@ -42,5 +42,5 @@ struct WatchHomeBudScreen: View {
 }
 
 #Preview {
-    WatchHomeBudScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()))
+    WatchHomeBudScreen(homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []))
 }

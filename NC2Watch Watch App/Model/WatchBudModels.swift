@@ -42,14 +42,12 @@ class WatchBudItem {
     var type: BudItemType
     var imageName: String = ""
     var colorScheme: Color
-    var counter: Int
-    var target: Double
+    var budItemData: WatchBudModelData
     
-    init(type: BudItemType, imageName: String, colorScheme: Color, counter: Int, target: Double) {
+    init(type: BudItemType, imageName: String, colorScheme: Color, budItemData: WatchBudModelData) {
         self.type = type
         self.imageName = imageName
         self.colorScheme = colorScheme
-        self.counter = counter
-        self.target = target
+        self.budItemData = budItemData
     }
 }

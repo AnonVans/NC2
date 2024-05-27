@@ -30,7 +30,7 @@ struct WatchBudProgressRing: View {
                 .foregroundColor(.gray)
             
             Circle()
-                .trim(from: 0.0, to: CGFloat(min(homeViewModel.progress, 1.0)))
+                .trim(from: 0.0, to: CGFloat(min(homeViewModel.calculateBudProgress(), 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .frame(height: frameHeightInner)
                 .foregroundColor(homeViewModel.colorScheme)
@@ -41,7 +41,7 @@ struct WatchBudProgressRing: View {
 
 #Preview {
     WatchBudProgressRing(
-        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager()),
+        homeViewModel: WatchHomeViewModel(healthManager: HealthDataManager(), budItems: []),
         frameHeightInner: 120,
         lineWidth: 7.5)
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct NC2App: App {
@@ -14,8 +15,11 @@ struct NC2App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(healthManager)
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(healthManager)
+        .modelContainer(for: [
+            BudDataModel.self
+        ])
     }
 }

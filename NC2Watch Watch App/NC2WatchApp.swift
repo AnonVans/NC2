@@ -11,10 +11,11 @@ import SwiftData
 @main
 struct NC2Watch_Watch_AppApp: App {
     @StateObject var healthManager = HealthDataManager()
+    @StateObject var iosConnector = IOSAppConnector()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(homeViewModel: WatchHomeViewModel(healthManager: healthManager))
+            ContentView(receivedData: $iosConnector.receivedData, didReceiveData: $iosConnector.didReceiveData)
                 .environmentObject(healthManager)
                 .preferredColorScheme(.dark)
         }
